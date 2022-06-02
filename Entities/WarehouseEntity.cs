@@ -15,6 +15,8 @@ namespace Entities
         [StringLength(100)]
         public string WarehouseName { get; set; }
 
-        public int TotalQuantity { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string WherehouseAddress { get; set; }
     }
 }

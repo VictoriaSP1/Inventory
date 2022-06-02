@@ -12,9 +12,8 @@ namespace Entities
         public string StorageId { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string StorageName { get; set; }
+        public DateTime LastUpdate { get; set; }
 
-        public int TotalQuantity { get; set; }
+        public int PartialQuantity { get; set; }
     }
 }
