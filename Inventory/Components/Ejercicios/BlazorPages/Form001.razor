@@ -1,0 +1,26 @@
+﻿<div>
+    <p>
+       @Message:
+        <input type="text" placeholder="@Message" @bind="@Valor" @bind:event="oninput" />
+       @Valor
+    </p>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Message { get; set; }
+
+
+    string Valor = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        Message = Message;
+    }
+
+    private void ChangeText()
+    {
+
+    }
+}
