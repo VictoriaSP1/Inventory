@@ -1,20 +1,18 @@
 ﻿@page "/"
-<!--<input type ="text" value="Algo"/>-->
-<!--<input type="text" value="@message" />-->
-<!--Aquí ya se encuentra en una comunicación de doble vía,
-    por lo que aparecerá como mensaje, lo que se escriba en el input.
-    Teniendo en cuenta que el valor por defecto es "Un contenido"
-    y esto se sobreescribe-->
-<!--<input type="text" @bind-value="@message" />-->
-<!--<input type="button" value"Haga un click aquí" @onclick="ChangeText" />-->
-<input type="text" @bind="@message" @bind:event="oninput" />
+
+
 
 <div>
-    <p>@message</p>
+    <p>
+        Nombre:
+            <input type="text" placeholder="Nombre" @bind="@message" @bind:event="oninput" />
+            @message     
+    </p>
+
 </div>
 
 @code {
-    string message = "Un contenido";
+    string message = "";
 
     private void ChangeText()
     {
