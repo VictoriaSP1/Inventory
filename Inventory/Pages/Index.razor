@@ -5,19 +5,20 @@
 <div>
     <p>
         Nombre:
-        <input type="text" placeholder="Nombre" @bind="@message" @bind:event="oninput" />
-        @message
+        <input type="text" placeholder="Nombre" @bind="@Nombre" @bind:event="oninput" />
+        @Nombre
     </p>
     <p>
         Apellidos:
-        <input type="text" placeholder="Apellidos" @bind="@message" @bind:event="oninput" />
-        @message
+        <input type="text" placeholder="Apellido" @bind="@Apellido" @bind:event="oninput" />
+        @Apellido
     </p>
 
 </div>
 
 @code {
-    string message = "";
+    string Nombre = "";
+    string Apellido = "";
 
     private void ChangeText()
     {
