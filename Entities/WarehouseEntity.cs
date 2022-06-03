@@ -17,7 +17,7 @@ namespace Entities
 
         [Required]
         [StringLength(100)]
-        public string WherehouseAddress { get; set; }
+        public string WarehouseAddress { get; set; }
 
         //Muchos almacenamientos, una bodega
         public ICollection <StorageEntity> Storage { get; set; }
