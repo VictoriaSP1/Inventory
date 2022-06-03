@@ -15,6 +15,7 @@ namespace Entities
         [StringLength(100)]
         public string CategoryName { get; set; }
 
-
+        //Una categoría, múltiples almacenamientos
+        public ICollection <ProductEntity> Products { get; set; }
     }
 }

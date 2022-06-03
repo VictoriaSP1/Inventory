@@ -20,5 +20,12 @@ namespace Entities
 
         public int TotalQuatity { get; set; }
 
+        //Una categoría para muchos productos
+        public string CategoryId { get; set; }
+        public CategoryEntity Category { get; set; }
+
+        //Un producto, multiples almacenamientos
+        public ICollection<StorageEntity> Storages { get; set; }
+
     }
 }

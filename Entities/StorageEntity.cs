@@ -15,5 +15,17 @@ namespace Entities
         public DateTime LastUpdate { get; set; }
 
         public int PartialQuantity { get; set; }
+
+        //Un producto, multiples almacenamientos
+        public string ProductId { get; set; }
+        public ProductEntity Product { get; set; }
+
+        //Muchos almacenamientos, una bodega
+        public string WarehouseId { get; set; }
+        public WarehouseEntity Warehouse { get; set; }
+
+        //Un almacenamiento, muchas entradas/salidas
+        public ICollection<InputOutputEntity> InOut { get; set; }
+
     }
 }

@@ -20,5 +20,9 @@ namespace Entities
         [Required]
         public bool IsInput { get; set; }
 
+        //Un almacenamiento, muchas entradas/salidas
+        public string StorageId { get; set; }
+        public StorageEntity Storage { get; set; }
+
     }
 }
