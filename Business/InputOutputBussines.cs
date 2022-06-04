@@ -7,9 +7,9 @@ using Entities;
 
 namespace Business
 {
-    public class InputOutputBussines : ICRUD<InputOutputEntity>
+    public class InputOutputBussines 
     {
-        public List<InputOutputEntity> ItemList()
+        public static List<InputOutputEntity> InOutList()
         {
             using (var db = new InventaryContext())
             {
@@ -17,7 +17,7 @@ namespace Business
             }
         }
 
-        public void CreateItem(InputOutputEntity objInOut)
+        public static void CreateInOut(InputOutputEntity objInOut)
         {
             using (var db = new InventaryContext())
             {
@@ -26,7 +26,7 @@ namespace Business
             }
         }
 
-        public void UpdateItem(InputOutputEntity objInOut)
+        public static void UpdateInOut(InputOutputEntity objInOut)
         {
             using (var db = new InventaryContext())
             {
@@ -35,7 +35,7 @@ namespace Business
             }
         }
 
-        public void DeleteItem(InputOutputEntity objInOut)
+        public static void DeleteInOut(InputOutputEntity objInOut)
         {
             // Eliminar
         }

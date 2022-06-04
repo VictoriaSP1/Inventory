@@ -7,10 +7,10 @@ using System.Linq;
 
 namespace Business
 {
-    public class ProductBusiness : ICRUD<ProductEntity>
+    public class ProductBusiness 
     {
 
-        public List<ProductEntity> ItemList()
+        public static List<ProductEntity> ProductList()
         {
             using (var db = new InventaryContext())
             {
@@ -18,7 +18,7 @@ namespace Business
             }
         }
 
-        public void CreateItem(ProductEntity objProduct)
+        public static void CreateProduct(ProductEntity objProduct)
         {
             using (var db = new InventaryContext())
             {
@@ -27,7 +27,7 @@ namespace Business
             }
         }
 
-        public void UpdateItem(ProductEntity objProduct)
+        public static void UpdateProduct(ProductEntity objProduct)
         {
             using (var db = new InventaryContext())
             {
@@ -36,7 +36,7 @@ namespace Business
             }
         }
 
-        public void DeleteItem(ProductEntity objProduct)
+        public static void DeleteProduct(ProductEntity objProduct)
         {
             //Eliminar
         }
