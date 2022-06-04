@@ -6,12 +6,12 @@ namespace Business
 {
     interface ICRUD <Entity>
     {
-        List<Entity> ItemList();
+        List <Entity> ItemList();
 
-        void CreateItem(Entity obj);
+        void CreateItem (Entity obj);
 
-        void UpdateItem(Entity obj);
+        void UpdateItem (Entity obj);
 
-        void DeleteItem(Entity obj);
+        void DeleteItem (Entity obj);
     }
 }
