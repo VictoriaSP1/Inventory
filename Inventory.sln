@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{AC413C30-A533-43B0-A7CA-6597A759F169}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{8D72F091-A4EE-48C8-AEBA-08F0BC143182}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{8D72F091-A4EE-48C8-AEBA-08F0BC143182}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
