@@ -3,19 +3,30 @@
 
     <div>
         <EditForm Model="objProduct">
-            <div class="form-control">
+            <div class="form-group">
                 <label>Referencia: </label>
                 <InputText @bind-Value="objProduct.ProductId" class="form-control" />
 
             </div>
-            <div class="form-control">
+            <div class="form-group">
                 <label>Nombre del producto: </label>
                 <InputText @bind-Value="objProduct.ProductName" class="form-control" />
 
             </div>
-            <div class="form-control">
+            <div class="form-group">
                 <label>Descripción: </label>
                 <InputTextArea @bind-Value="objProduct.ProductDescription" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label>Categoría:</label>
+                <InputSelect @bind-Value="objProduct.CategoryId" class="form-control">
+                    @foreach(var category in categories)
+                    {
+                        <!--El valor es necesario para saber, internamente, a que se refiere, el name es para saber que es-->
+                        <option value="@category.CategoryId">@category.CategoryName</option>
+                    }
+                </InputSelect>
 
             </div>
 
@@ -26,9 +37,17 @@
     @code {
 
         ProductEntity objProduct = new ProductEntity();
+        List<CategoryEntity> categories = new List<CategoryEntity>();
+
+        protected override async Task OnInitializedAsync ()
+        {
+            categories = CategoryBusiness.CategoryList();
+        }
 
         private void SaveProduct ()
         {
             ProductBusiness.CreateProduct(objProduct);
         }
+
+        
     }
