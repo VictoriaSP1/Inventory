@@ -18,6 +18,14 @@ namespace Business
             }
         }
 
+        public static WarehouseEntity WarehouseById(string id)
+        {
+            using (var db = new InventaryContext())
+            {
+                return db.Warehouse.ToList().LastOrDefault(p => p.WarehouseId == id);
+            }
+        }
+
         public static void CreateWarehouse(WarehouseEntity objWarehouse)
         {
             using (var db = new InventaryContext())

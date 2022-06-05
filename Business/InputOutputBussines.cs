@@ -17,6 +17,14 @@ namespace Business
             }
         }
 
+        public static InputOutputEntity InOutById(string id)
+        {
+            using (var db = new InventaryContext())
+            {
+                return db.InOut.ToList().LastOrDefault(p => p.InOutId == id);
+            }
+        }
+
         public static void CreateInOut(InputOutputEntity objInOut)
         {
             using (var db = new InventaryContext())

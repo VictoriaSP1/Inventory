@@ -18,6 +18,14 @@ namespace Business
             }
         }
 
+        public static StorageEntity StorageById(string id)
+        {
+            using (var db = new InventaryContext())
+            {
+                return db.Storage.ToList().LastOrDefault(p => p.StorageId == id);
+            }
+        }
+
         public static void CreateStorage(StorageEntity objStorage)
         {
             using (var db = new InventaryContext())
