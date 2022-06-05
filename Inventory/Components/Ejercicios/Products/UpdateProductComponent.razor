@@ -1,0 +1,36 @@
+﻿@using Entities
+@using Business
+
+<EditForm Model="objProduct">
+    <div class="form-group">
+        <label>Producto:</label>
+        <InputText class="form-control" @bind-Value="objProduct.ProductName" />
+    </div>
+    <div class="form-group">
+        <label>Descripción:</label>
+        <InputText class="form-control" @bind-Value="objProduct.ProductDescription" />
+    </div>
+    <div class="form-group">
+        <label>Categoría:</label>
+        <InputSelect class="form-control" @bind-Value="objProduct.ProductName">
+            @foreach (var category in categories)
+            {
+                <option value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </InputSelect>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter]
+    public string IdProduct { get; set;  }
+
+    ProductEntity objProduct = new ProductEntity();
+    List<CategoryEntity> categories = new List<CategoryEntity>();
+
+    protected override async Task OnInitializedAsync ()
+    {
+        categories = CategoryBusiness.CategoryList();
+        objProduct = ProductBusiness.ProductById(IdProduct);
+    }
+}
