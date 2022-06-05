@@ -22,7 +22,7 @@ namespace Business
         {
             using (var db = new InventaryContext())
             {
-                return db.Product.LastOrDefault(p => p.ProductId == id);
+                return db.Product.ToList().LastOrDefault(p => p.ProductId == id);
             }
         }
 
