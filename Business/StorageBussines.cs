@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business
 {
@@ -26,12 +27,37 @@ namespace Business
             }
         }
 
-        public static void CreateStorage(StorageEntity objStorage)
+        public static StorageEntity CreateStorage(StorageEntity objStorage)
         {
             using (var db = new InventaryContext())
             {
                 db.Storage.Add(objStorage);
                 db.SaveChanges();
+
+                return StorageById(objStorage.StorageId);
+            }
+        }
+
+        public static bool IsProductInWarehouse (string idStorage)
+        {
+            using (var db = new InventaryContext())
+            {
+                var product = db.Storage.ToList()
+                                .Where(s=>s.StorageId == idStorage);
+
+                return product.Any();
+            }
+        }
+
+        public static List<StorageEntity> StorageProductsByWarehouse(string idWarehouse)
+        {
+            using (var db = new InventaryContext())
+            {
+                return db.Storage
+                    .Include(s=>s.Product)
+                    .Include(s => s.Warehouse)
+                    .Where(s=>s.WarehouseId==idWarehouse)
+                    .ToList();
             }
         }
 

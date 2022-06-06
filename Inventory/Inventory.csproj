@@ -9,10 +9,4 @@
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\Categories\" />
-    <Folder Include="Pages\Warehouses\" />
-    <Folder Include="Pages\Products\" />
-  </ItemGroup>
-
 </Project>

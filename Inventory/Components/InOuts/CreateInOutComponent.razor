@@ -12,10 +12,10 @@
     </select>
 </div>
 
-<EditForm Model="inouts">
+<EditForm Model="objInOuts">
     <div class="form-group">
         <label>Producto</label>
-        <InputSelect class="form-control" @bind-Value="inouts.StorageId">
+        <InputSelect class="form-control" @bind-Value="objInOuts.StorageId">
             <option>Seleccione producto...</option>
             @foreach (var storage in storages)
             {
@@ -26,11 +26,11 @@
 
     <div class="form-group">
         <label>Cantidad</label>
-        <InputNumber class="form-control" @bind-Value="inouts.Quantity" />
+        <InputNumber class="form-control" @bind-Value="objInOuts.Quantity" />
     </div>
     <div class="form-group">
         <label>Es un ingreso</label>
-        <InputCheckbox class="form-control" @bind-Value="inouts.IsInput" />
+        <InputCheckbox class="form-control" @bind-Value="objInOuts.IsInput" />
     </div>
     <div>
         <input type="button" value="@buttonValue" @onclick="Save" class="form-control btn btn-warning" />
@@ -38,13 +38,13 @@
 </EditForm>
 
 @code{
-    InputOutputEntity inouts = new InputOutputEntity();
+    InputOutputEntity objInOuts = new InputOutputEntity();
     List<WarehouseEntity> warehouses = new List<WarehouseEntity>();
     List<StorageEntity> storages = new List<StorageEntity>();
     ProductEntity objProduct = new ProductEntity();
     StorageEntity objStorage = new StorageEntity();
 
-    string buttonValue => inouts.IsInput ? "Registrar Entrada" : "Registrar Salida";
+    string buttonValue => objInOuts.IsInput ? "Registrar Entrada" : "Registrar Salida";
 
     protected override async Task OnInitializedAsync()
     {
@@ -53,23 +53,23 @@
 
     private void OnWarehouseChanged(ChangeEventArgs e)
     {
-        string id = e.Value.ToString();
+        string idWarehouse = e.Value.ToString();
 
-        storages = StorageBusiness.StorageListByWarehouse(id);
+        storages = StorageBusiness.StorageProductsByWarehouse(idWarehouse);
     }
 
     private void Save()
     {
-        var quantity = inouts.Quantity;
-        var objStorage = storages.LastOrDefault(s => s.StorageId == inouts.StorageId);
+        var quantity = objInOuts.Quantity;
+        var objStorage = storages.LastOrDefault(s => s.StorageId == objInOuts.StorageId);
         var product = objStorage.Product;
 
-        if (!inouts.IsInput)
+        if (!objInOuts.IsInput)
         {
             //quantity = -1 * quantity;
             if (IsBiggerThanZero(quantity, objStorage))
             {
-                product.TotalQuantity = product.TotalQuantity - quantity;
+                product.TotalQuatity = product.TotalQuatity - quantity;
                 objStorage.PartialQuantity = objStorage.PartialQuantity - quantity;
             }
 
@@ -78,7 +78,7 @@
         }
         else
         {
-            product.TotalQuantity = product.TotalQuantity + quantity;
+            product.TotalQuatity = product.TotalQuatity + quantity;
             objStorage.PartialQuantity = objStorage.PartialQuantity + quantity;
 
             StorageBusiness.UpdateStorage(objStorage);

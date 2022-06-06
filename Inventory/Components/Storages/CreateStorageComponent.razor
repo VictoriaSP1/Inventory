@@ -64,7 +64,7 @@
             }
             else
             {
-                var oldStorage = StorageBusiness.GetStorageById(id);
+                var oldStorage = StorageBusiness.StorageById(id);
                 message = $"El producto {oldStorage.Product.ProductName} ya se encuentra en a bodega {oldStorage.Warehouse.WarehouseName}";
             }
         }

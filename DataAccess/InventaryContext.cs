@@ -50,7 +50,7 @@ namespace DataAccess
                     ProductName = "Crema para manos marca Tersa", 
                     ProductDescription = "", 
                     CategoryId = "PRF" 
-                },
+                  },
                 new ProductEntity { ProductId = "RPT-54658", 
                     ProductName = "Pastillas para la garganta LESUS", 
                     ProductDescription = "", 

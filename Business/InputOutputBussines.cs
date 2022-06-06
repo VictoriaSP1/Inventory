@@ -21,7 +21,7 @@ namespace Business
         {
             using (var db = new InventaryContext())
             {
-                return db.InOut.ToList().LastOrDefault(p => p.InOutId == id);
+                return db.InOut.ToList().LastOrDefault(p => p.InputOutputId== id);
             }
         }
 

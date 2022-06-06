@@ -69,7 +69,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        warehouses = WarehouseBusiness.warehouseList();
+        warehouses = WarehouseBusiness.WarehouseList();
         storages = StorageBusiness.StorageList();
 
         storageTemp = storages;        
